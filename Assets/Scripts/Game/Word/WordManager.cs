@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class WordManager : MonoBehaviour {
 
-	public List<Word> words;
+	public List<Word> playerWords;
+	public List<Word> enemyWords;
 
-	public WordSpawner wordSpawner;
+	public WordSpawner playerWordSpawner;
+	public WordSpawner enemyWordSpawner;
 
 	private bool hasActiveWord;
 	private Word activeWord;
 
 	public void AddWord ()
 	{
-		Word word = new Word(WordGenerator.GetRandomWord(), wordSpawner.SpawnWord());
-		Debug.Log(word.word);
+		Word playerWord = new Word(WordGenerator.GetRandomWord(), playerWordSpawner.SpawnWord());
+		Word enemyWord = new Word(WordGenerator.GetRandomWord(), enemyWordSpawner.SpawnWord());
+		
+		Debug.Log("Player word: " + playerWord.word);
+		Debug.Log("Enemy word: " + enemyWord.word);
 
-		words.Add(word);
+		playerWords.Add(playerWord);
+		enemyWords.Add(enemyWord);
 	}
 
 	public void TypeLetter (char letter)
@@ -29,7 +35,7 @@ public class WordManager : MonoBehaviour {
 			}
 		} else
 		{
-			foreach(Word word in words)
+			foreach(Word word in playerWords)
 			{
 				if (word.GetNextLetter() == letter)
 				{
@@ -44,7 +50,7 @@ public class WordManager : MonoBehaviour {
 		if (hasActiveWord && activeWord.WordTyped())
 		{
 			hasActiveWord = false;
-			words.Remove(activeWord);
+			playerWords.Remove(activeWord);
 		}
 	}
 

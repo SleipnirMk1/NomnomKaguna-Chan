@@ -7,9 +7,20 @@ public class WordSpawner : MonoBehaviour {
 	public GameObject foodPrefab;
 	public Transform wordCanvas;
 
-	public WordDisplay SpawnWord ()
+	public bool isPlayer;
+
+	public WordDisplay SpawnWord()
 	{
-		Vector3 randomPosition = new Vector3(12f, 0f);
+		float spawnY;
+		if(isPlayer)
+		{
+			spawnY = 0f;
+		} else
+		{
+			spawnY = -3f;
+		}
+
+		Vector3 randomPosition = new Vector3(12f, spawnY);
 
 		GameObject wordObj = Instantiate(foodPrefab, randomPosition, Quaternion.identity, wordCanvas);
 		WordDisplay wordDisplay = wordObj.GetComponent<WordDisplay>();
