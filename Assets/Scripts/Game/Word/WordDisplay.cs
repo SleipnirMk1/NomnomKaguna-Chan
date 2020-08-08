@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WordDisplay : MonoBehaviour {
 
-	public Text text;
+	//public Text text;
+	public TextMeshProUGUI text;
 	public float foodSpeed = 1f;
+	//public GameObject sprite;
 
 	public void SetWord (string word)
 	{
@@ -16,7 +19,7 @@ public class WordDisplay : MonoBehaviour {
 	public void RemoveLetter ()
 	{
 		text.text = text.text.Remove(0, 1);
-		text.color = Color.red;
+		text.color = Color.yellow;
 	}
 
 	public void RemoveWord ()
