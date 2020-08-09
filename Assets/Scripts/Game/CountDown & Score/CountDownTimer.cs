@@ -12,11 +12,15 @@ public class CountDownTimer : MonoBehaviour
 
     public TextMeshProUGUI countDownText;
 
+    public static bool levelFinished;
+
     // Start is called before the first frame update
     void Start()
     {
         currentTime = startTime;
-
+        levelFinished = false;
+        Time.timeScale = 1f;
+        
     }
 
     // Update is called once per frame
@@ -26,8 +30,9 @@ public class CountDownTimer : MonoBehaviour
         
         currentTime -= 1 * Time.deltaTime;
 
-        if (currentTime == 0f)
+        if (currentTime <= 0f)
         {
+            levelFinished = true;
             Time.timeScale = 0f;
         }
     }

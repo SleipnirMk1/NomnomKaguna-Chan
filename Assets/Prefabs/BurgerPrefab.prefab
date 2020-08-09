@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 491695860959283953}
   - component: {fileID: 491695860959283958}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: BurgerPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

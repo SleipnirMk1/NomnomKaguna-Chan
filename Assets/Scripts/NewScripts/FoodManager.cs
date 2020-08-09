@@ -7,6 +7,8 @@ public class FoodManager : MonoBehaviour
 
     public bool hasActiveFood;
 
+	public static bool foodEaten;
+
     public GameObject activeFood;
 
     public FoodList foodListScript;
@@ -18,20 +20,22 @@ public class FoodManager : MonoBehaviour
 		if (hasActiveFood)
 		{
             Food foodScript = activeFood.GetComponent<Food>();
-
-            if (foodScript.WordTyped(nameDisplayScript))
-		    {
-				hasActiveFood = false;
-				foodListScript.playerFoods.Remove(activeFood);
-				Destroy(activeFood);
-				Debug.Log("FoodTyped");
-		    }
-
-			else if (foodScript.GetNextLetter() == letter)
+			if (foodScript.GetNextLetter() == letter)
 			{
 				foodScript.TypeLetter(nameDisplayScript);
 				Debug.Log("LetterTyped");
+			
+
+            	if (foodScript.WordTyped(nameDisplayScript))
+		    	{
+					hasActiveFood = false;
+					foodListScript.playerFoods.Remove(activeFood);
+					Destroy(activeFood);
+					foodEaten = true;
+					Debug.Log("FoodTyped");
+		    	}
 			}
+		
 		} else
 		{
 			Debug.Log(foodListScript.playerFoods.Count);

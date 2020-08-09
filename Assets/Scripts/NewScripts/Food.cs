@@ -26,10 +26,7 @@ public class Food : MonoBehaviour
 	public bool WordTyped (NameDisplay display)
 	{
 		bool wordTyped = (nameIndex >= foodName.Length);
-		if (wordTyped)
-		{
-			display.EatFood();
-		}
+		
 		return wordTyped;
 	}
 

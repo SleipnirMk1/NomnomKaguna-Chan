@@ -11,8 +11,6 @@ public class NameDisplay : MonoBehaviour
 
     public FoodManager foodManagerScript;
 
-    public bool foodEaten;
-
 
     public void SetName ()
 	{
@@ -28,10 +26,10 @@ public class NameDisplay : MonoBehaviour
 		//WordManager.conveyorText.text = text.text;
 	}
 
-	public void EatFood ()	// remove bakal dibagi 2, sampah dan poin
-	{
+	//public void EatFood ()	// remove bakal dibagi 2, sampah dan poin
+	//{
 		//Destroy(gameObject);
 
-		foodEaten = true;
-	}
+		//foodEaten = true;
+	//}
 }
