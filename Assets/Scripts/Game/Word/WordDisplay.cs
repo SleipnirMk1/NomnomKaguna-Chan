@@ -6,9 +6,9 @@ using TMPro;
 
 public class WordDisplay : MonoBehaviour {
 
-	//public Text text;
 	public TextMeshProUGUI text;
 	public float foodSpeed = 1f;
+	public static bool foodEaten = false;
 	//public GameObject sprite;
 
 	public void SetWord (string word)
@@ -25,9 +25,11 @@ public class WordDisplay : MonoBehaviour {
 	public void RemoveWord ()
 	{
 		Destroy(gameObject);
+
+		foodEaten = true;
 	}
 
-	private void Update()
+	private void FixedUpdate()
 	{
 		transform.Translate(-foodSpeed * Time.deltaTime, 0f, 0f);
 	}

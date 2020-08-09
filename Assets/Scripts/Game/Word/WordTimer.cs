@@ -9,7 +9,7 @@ public class WordTimer : MonoBehaviour {
 	public float wordDelay = 1f;
 	private float nextWordTime = 0.5f;
 
-	private void Update()
+	private void FixedUpdate()
 	{
 		if (Time.time >= nextWordTime)
 		{
