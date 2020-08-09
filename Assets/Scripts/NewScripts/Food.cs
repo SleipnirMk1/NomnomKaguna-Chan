@@ -4,35 +4,38 @@ using UnityEngine;
 
 public class Food : MonoBehaviour
 {
-   public string foodName;
 
-   [SerializeField]
-   private float beltSpeed = 3f;
+	public string foodName;
 
-   int nameIndex = 0;
+	public NameDisplay display;
 
-   public char GetNextLetter ()
+	[SerializeField]
+	private float beltSpeed = 3f;
+
+	int nameIndex = 0;
+
+	public char GetNextLetter ()
 	{
 		return foodName[nameIndex];
 	}
 
-   public void TypeLetter ()
+	public void TypeLetter ()
 	{
 		nameIndex++;
-		//display.RemoveLetter();
+		display.RemoveLetter();
 	}
 
-   public bool WordTyped ()
+	public bool WordTyped ()
 	{
 		bool wordTyped = (nameIndex >= foodName.Length);
-		//if (wordTyped)
-		//{
-			//display.RemoveWord();
-		//}
+		if (wordTyped)
+		{
+			display.EatFood();
+		}
 		return wordTyped;
 	}
 
-   private void FixedUpdate()
+	private void FixedUpdate()
 	{
 		transform.Translate(-beltSpeed * Time.deltaTime, 0f, 0f);
    }

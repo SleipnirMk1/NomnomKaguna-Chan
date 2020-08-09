@@ -21,12 +21,13 @@ public class FoodManager : MonoBehaviour
 		    {
 			hasActiveFood = false;
 			foodListScript.playerFoods.Remove(activeFood);
+			Debug.Log("FoodTyped");
 		    }
 
 			else if (foodScript.GetNextLetter() == letter)
 			{
 				foodScript.TypeLetter();
-
+				Debug.Log("LetterTyped");
 			}
 		} else
 		{
@@ -40,6 +41,7 @@ public class FoodManager : MonoBehaviour
 					//text.text = activeWord.word;
 					hasActiveFood = true;
 					foodScript.TypeLetter();
+					Debug.Log("SelectFood");
 					break;
 				}
 			}

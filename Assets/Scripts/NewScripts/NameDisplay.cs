@@ -9,27 +9,29 @@ public class NameDisplay : MonoBehaviour
 
     public TextMeshProUGUI foodNameText;
 
-    public FoodManager foodManagerText;
+    public FoodManager foodManagerScript;
 
-    public static bool foodEaten = false;
+    public bool foodEaten;
 
 
-    //public void SetName ()
-	//{
-		//foodNameText.text = foodManagerText.activeFood foodName;
-	//}
+    public void SetName ()
+	{
+		Food foodScript = foodManagerScript.activeFood.GetComponent<Food>();
+		foodNameText.text = foodScript.foodName;
+		Debug.Log("SetName");
+	}
 
-	//public void RemoveLetter ()		// text dipindah ke depan conveyor, mungkin script baru
-	//{
-		//text.text = text.text.Remove(0, 1);
-		//text.color = Color.yellow;
+	public void RemoveLetter ()		// text dipindah ke depan conveyor, mungkin script baru
+	{
+		foodNameText.text = foodNameText.text.Remove(0, 1);
+		foodNameText.color = Color.yellow;
 		//WordManager.conveyorText.text = text.text;
-	//}
+	}
 
-	//public void RemoveWord ()	// remove bakal dibagi 2, sampah dan poin
-	//{
-		//Destroy(gameObject);
+	public void EatFood ()	// remove bakal dibagi 2, sampah dan poin
+	{
+		Destroy(foodManagerScript.activeFood);
 
-		//foodEaten = true;
-	//}
+		foodEaten = true;
+	}
 }
