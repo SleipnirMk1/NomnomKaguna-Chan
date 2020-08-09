@@ -21,9 +21,10 @@ public class FoodManager : MonoBehaviour
 
             if (foodScript.WordTyped(nameDisplayScript))
 		    {
-			hasActiveFood = false;
-			foodListScript.playerFoods.Remove(activeFood);
-			Debug.Log("FoodTyped");
+				hasActiveFood = false;
+				foodListScript.playerFoods.Remove(activeFood);
+				Destroy(activeFood);
+				Debug.Log("FoodTyped");
 		    }
 
 			else if (foodScript.GetNextLetter() == letter)
@@ -33,6 +34,7 @@ public class FoodManager : MonoBehaviour
 			}
 		} else
 		{
+			Debug.Log(foodListScript.playerFoods.Count);
 			foreach(GameObject food in foodListScript.playerFoods)
 			{
                 Food foodScript = food.GetComponent<Food>();

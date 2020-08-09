@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodPrefabsList:
-  - {fileID: 491695860959283959, guid: 283e7ccfb3b17374293d16d4db11c8ea, type: 3}
+  - {fileID: 6472215295096672636, guid: 5d2d8aafd3b34624fbdb386a187999a8, type: 3}
 --- !u!114 &1543764619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,7 +378,6 @@ MonoBehaviour:
   hasActiveFood: 0
   activeFood: {fileID: 0}
   foodListScript: {fileID: 1543764619}
-  nameDisplayScript: {fileID: 1543764622}
 --- !u!4 &1543764621
 Transform:
   m_ObjectHideFlags: 0

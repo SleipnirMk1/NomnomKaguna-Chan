@@ -30,7 +30,7 @@ public class NameDisplay : MonoBehaviour
 
 	public void EatFood ()	// remove bakal dibagi 2, sampah dan poin
 	{
-		Destroy(gameObject);
+		//Destroy(gameObject);
 
 		foodEaten = true;
 	}
