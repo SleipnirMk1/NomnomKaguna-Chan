@@ -7,25 +7,23 @@ public class Food : MonoBehaviour
 
 	public string foodName;
 
-	public NameDisplay display;
-
 	[SerializeField]
 	private float beltSpeed = 3f;
 
-	int nameIndex = 0;
+	private int nameIndex = 0;
 
 	public char GetNextLetter ()
 	{
 		return foodName[nameIndex];
 	}
 
-	public void TypeLetter ()
+	public void TypeLetter (NameDisplay display)
 	{
 		nameIndex++;
 		display.RemoveLetter();
 	}
 
-	public bool WordTyped ()
+	public bool WordTyped (NameDisplay display)
 	{
 		bool wordTyped = (nameIndex >= foodName.Length);
 		if (wordTyped)

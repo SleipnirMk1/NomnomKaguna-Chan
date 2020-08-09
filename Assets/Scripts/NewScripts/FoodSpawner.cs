@@ -30,6 +30,6 @@ public class FoodSpawner : MonoBehaviour
 		GameObject foodObj = Instantiate(selectedFood, randomPosition, Quaternion.identity);
 		//WordDisplay wordDisplay = wordObj.GetComponent<WordDisplay>();
 
-        foodListScript.playerFoods.Add(selectedFood);
+        foodListScript.playerFoods.Add(foodObj);
 	}
 }

@@ -11,7 +11,7 @@ public class LetterInput : MonoBehaviour
 		foreach (char letter in Input.inputString)
 		{
 			foodManagerScript.TypeLetter(letter);
-            //Debug.Log("tes");
+            //Debug.Log(letter);
 		}
 	}
 }
