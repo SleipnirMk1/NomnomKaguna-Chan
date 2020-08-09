@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class WordManager : MonoBehaviour {
 
@@ -10,19 +12,23 @@ public class WordManager : MonoBehaviour {
 	public WordSpawner playerWordSpawner;
 	public WordSpawner enemyWordSpawner;
 
-	private bool hasActiveWord;
+	//public TextMeshProUGUI text;
+
+	public static bool hasActiveWord;
 	private Word activeWord;
+
+	//public static TextMeshProUGUI conveyorText;
 
 	public void AddWord ()
 	{
 		Word playerWord = new Word(WordGenerator.GetRandomWord(), playerWordSpawner.SpawnWord());
-		Word enemyWord = new Word(WordGenerator.GetRandomWord(), enemyWordSpawner.SpawnWord());
+		//Word enemyWord = new Word(WordGenerator.GetRandomWord(), enemyWordSpawner.SpawnWord());
 		
 		Debug.Log("Player word: " + playerWord.word);
-		Debug.Log("Enemy word: " + enemyWord.word);
+		//Debug.Log("Enemy word: " + enemyWord.word);
 
 		playerWords.Add(playerWord);
-		enemyWords.Add(enemyWord);
+		//enemyWords.Add(enemyWord);
 	}
 
 	public void TypeLetter (char letter)
@@ -32,6 +38,7 @@ public class WordManager : MonoBehaviour {
 			if (activeWord.GetNextLetter() == letter)
 			{
 				activeWord.TypeLetter();
+
 			}
 		} else
 		{
@@ -40,6 +47,7 @@ public class WordManager : MonoBehaviour {
 				if (word.GetNextLetter() == letter)
 				{
 					activeWord = word;
+					//text.text = activeWord.word;
 					hasActiveWord = true;
 					word.TypeLetter();
 					break;

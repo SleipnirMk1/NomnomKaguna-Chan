@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6472215295096672611}
   - component: {fileID: 6472215295096672609}
   - component: {fileID: 6472215295096672610}
-  - component: {fileID: 7961690679981210027}
   m_Layer: 5
   m_Name: FoodSprite
   m_TagString: Untagged
@@ -36,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.335693, y: -0.13357544}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6472215295096672609
@@ -76,20 +75,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7961690679981210027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6472215295096672636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bfaac6c366a52848b5c6dd249ce4078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 6472215297016089715}
-  foodSpeed: 3
 --- !u!1 &6472215297016089613
 GameObject:
   m_ObjectHideFlags: 0
