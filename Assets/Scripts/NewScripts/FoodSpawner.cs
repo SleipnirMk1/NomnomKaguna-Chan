@@ -14,18 +14,18 @@ public class FoodSpawner : MonoBehaviour
 
     public void SpawnFood()
 	{
-		float spawnY;
-		if(isPlayer)
-		{
-			spawnY = 1f;
-		} else
-		{
-			spawnY = -3f;
-		}
+		//float spawnY;
+		//if(isPlayer)
+		//{
+			//spawnY = 1f;
+		//} else
+		//{
+			//spawnY = -3f;
+		//}
 
         GameObject selectedFood = foodRandomizerScript.GetRandomFood();
 
-		Vector3 randomPosition = new Vector3(12f, spawnY);
+		Vector3 randomPosition = new Vector3(10f, -1f);
 
 		GameObject foodObj = Instantiate(selectedFood, randomPosition, Quaternion.identity);
 		//WordDisplay wordDisplay = wordObj.GetComponent<WordDisplay>();

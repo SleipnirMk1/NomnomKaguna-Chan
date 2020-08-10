@@ -22,7 +22,7 @@ public class NameDisplay : MonoBehaviour
 	public void RemoveLetter ()		// text dipindah ke depan conveyor, mungkin script baru
 	{
 		foodNameText.text = foodNameText.text.Remove(0, 1);
-		foodNameText.color = Color.yellow;
+		foodNameText.color = Color.red;
 		//WordManager.conveyorText.text = text.text;
 	}
 

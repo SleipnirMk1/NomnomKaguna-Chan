@@ -11,20 +11,25 @@ public class FinishedUI : MonoBehaviour
     public GameObject finishedCanvas; 
 
     public TextMeshProUGUI finalScoreText;
+
+    public TextMeshProUGUI highScoreText;
+
+    public GameObject scoreManager;
     
-    private void Start ()
-    {
-        //finishedCanvas.SetActive(false);
-    }
 
     private void Update()
     {
-
         if (CountDownTimer.levelFinished)
         {
             finishedCanvas.SetActive(true);
 
-            finalScoreText.text = "Score: " + ScoreManagerV2.playerScore.ToString();
+            ScoreManagerV2 scoreManagerScript = scoreManager.GetComponent<ScoreManagerV2>();
+
+            finalScoreText.text = " Your Score: " + scoreManagerScript.playerScore.ToString();
+
+            HighScoreData.instance.highScore = scoreManagerScript.highScore;
+
+            highScoreText.text = "High Score:" + scoreManagerScript.highScore.ToString();
         }
     }
 

@@ -6,9 +6,11 @@ using TMPro;
 
 public class ScoreManagerV2 : MonoBehaviour
 {
-    public static int playerScore;
+    public int playerScore;
 
     public int addScore = 10;
+
+    public int highScore;
 
     //ublic WordDisplay wordDisplayScript;
 
@@ -18,10 +20,10 @@ public class ScoreManagerV2 : MonoBehaviour
 	private TextMeshProUGUI scoreText;
 
     // Start is called before the first frame update
-    //void Start()
-    //{
-        //playerScore = 0;
-    //}
+    void Start()
+    {
+       highScore = HighScoreData.instance.highScore;
+    }
 
     // Update is called once per frame
     void Update()
@@ -33,5 +35,10 @@ public class ScoreManagerV2 : MonoBehaviour
             playerScore += addScore;
             FoodManager.foodEaten = false;
         }
+
+         if (playerScore > highScore)
+        {
+            highScore = playerScore;
+        } 
     }
 }
