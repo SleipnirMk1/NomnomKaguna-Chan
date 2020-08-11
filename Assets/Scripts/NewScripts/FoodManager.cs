@@ -9,11 +9,16 @@ public class FoodManager : MonoBehaviour
 
 	public static bool foodEaten;
 
+	public static bool foodEnemyEaten;
+
     public GameObject activeFood;
 
     public FoodList foodListScript;
 
 	public NameDisplay nameDisplayScript;
+
+	public Animator playerAnimator;
+	public Animator enemyAnimator;
 
     public void TypeLetter (char letter)
 	{
@@ -28,10 +33,7 @@ public class FoodManager : MonoBehaviour
 
             	if (foodScript.WordTyped(nameDisplayScript))
 		    	{
-					hasActiveFood = false;
-					foodListScript.playerFoods.Remove(activeFood);
-					Destroy(activeFood);
-					foodEaten = true;
+		    		ProcessFood(activeFood, true);
 					Debug.Log("FoodTyped");
 		    	}
 			}
@@ -56,8 +58,34 @@ public class FoodManager : MonoBehaviour
 				}
 			}
 		}
+	}
 
-		
+	public void ProcessFood(GameObject food, bool isFoodEaten)
+	{
+		bool isPlayer = food.GetComponent<Food>().isPlayer;
+		if(isPlayer)
+		{
+			Debug.Log("Player's food");
+			hasActiveFood = false;
+			foodListScript.playerFoods.Remove(food);
+			Destroy(food);
+			foodEaten = isFoodEaten;
+			if(foodEaten)
+			{
+				playerAnimator.SetTrigger("PlayerEat");
+			}	
+		} else
+		{
+			Debug.Log("Enemy's food");
+			foodListScript.enemyFoods.Remove(food);
+			Destroy(food);
+			foodEnemyEaten = isFoodEaten;
+			if(foodEaten)
+			{
+				Debug.Log("Enemy eat");
+				enemyAnimator.SetTrigger("EnemyEat");
+			}
+		}
 	}
 	
  

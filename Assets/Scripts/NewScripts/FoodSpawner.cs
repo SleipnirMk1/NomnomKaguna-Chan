@@ -10,8 +10,6 @@ public class FoodSpawner : MonoBehaviour
 
     public FoodList foodListScript;
 
-    public bool isPlayer;
-
     public void SpawnFood()
 	{
 		//float spawnY;
@@ -26,10 +24,17 @@ public class FoodSpawner : MonoBehaviour
         GameObject selectedFood = foodRandomizerScript.GetRandomFood();
 
 		Vector3 randomPosition = new Vector3(10f, -1f);
+		Vector3 randomEnemyPosition = new Vector3(-10f, -1f);
 
 		GameObject foodObj = Instantiate(selectedFood, randomPosition, Quaternion.identity);
+		GameObject foodEnemyObj = Instantiate(selectedFood, randomEnemyPosition, Quaternion.identity);
 		//WordDisplay wordDisplay = wordObj.GetComponent<WordDisplay>();
 
+		foodObj.GetComponent<Food>().isPlayer = true;
+		foodEnemyObj.GetComponent<Food>().isPlayer = false;
+		foodEnemyObj.GetComponent<Food>().SetBeltSpeed();
+
         foodListScript.playerFoods.Add(foodObj);
+        foodListScript.enemyFoods.Add(foodObj);
 	}
 }

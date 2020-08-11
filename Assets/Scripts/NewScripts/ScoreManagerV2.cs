@@ -7,6 +7,7 @@ using TMPro;
 public class ScoreManagerV2 : MonoBehaviour
 {
     public int playerScore;
+    public int enemyScore;
 
     public int addScore = 10;
 
@@ -18,6 +19,8 @@ public class ScoreManagerV2 : MonoBehaviour
 
     [SerializeField]
 	private TextMeshProUGUI scoreText;
+    [SerializeField]
+    private TextMeshProUGUI scoreEnemyText;
 
     // Start is called before the first frame update
     void Start()
@@ -29,11 +32,18 @@ public class ScoreManagerV2 : MonoBehaviour
     void Update()
     {
         scoreText.text = playerScore.ToString();
+        scoreEnemyText.text = enemyScore.ToString();
         
         if (FoodManager.foodEaten == true)
         {
             playerScore += addScore;
             FoodManager.foodEaten = false;
+        }
+
+        if (FoodManager.foodEnemyEaten == true)
+        {
+            enemyScore += addScore;
+            FoodManager.foodEnemyEaten = false;
         }
 
          if (playerScore > highScore)

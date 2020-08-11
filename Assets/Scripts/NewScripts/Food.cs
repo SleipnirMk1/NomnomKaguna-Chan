@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider2D))]
 public class Food : MonoBehaviour
 {
 
@@ -11,6 +12,8 @@ public class Food : MonoBehaviour
 	private float beltSpeed = 3f;
 
 	private int nameIndex = 0;
+
+	public bool isPlayer;
 
 	public char GetNextLetter ()
 	{
@@ -30,8 +33,23 @@ public class Food : MonoBehaviour
 		return wordTyped;
 	}
 
+	public void SetBeltSpeed()
+	{
+		if(!isPlayer)
+		{
+			beltSpeed = beltSpeed / 2;
+		}	
+	}
+
 	private void FixedUpdate()
 	{
-		transform.Translate(-beltSpeed * Time.deltaTime, 0f, 0f);
+		if(isPlayer)
+		{
+			transform.Translate(-beltSpeed * Time.deltaTime, 0f, 0f);
+		} else
+		{
+			transform.Translate(beltSpeed * Time.deltaTime, 0f, 0f);
+
+		}
    }
 }
